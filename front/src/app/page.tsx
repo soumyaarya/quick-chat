@@ -12,7 +12,7 @@ export default async function LandingPage() {
       {/* Header */}
       <Navbar user={session?.user ?? null} />
       {/* Hero Section */}
-      <HeroSection />
+      <HeroSection user={session?.user ?? null} />
 
       {/* Features Section */}
       <FeatureSection />

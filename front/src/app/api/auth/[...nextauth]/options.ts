@@ -3,8 +3,6 @@ import { JWT } from "next-auth/jwt";
 import GoogleProvider from "next-auth/providers/google";
 import axios, { AxiosError } from "axios";
 import { LOGIN_URL } from "@/lib/apiAuthRoutes";
-import { redirect } from "next/navigation";
-
 export interface CustomSession {
   user?: CustomUser;
   expires: ISODateString;
@@ -44,11 +42,9 @@ export const authOptions: AuthOptions = {
         return true;
       } catch (error) {
         if (error instanceof AxiosError) {
-          return redirect(`/auth/error?message=${error.message}`);
+          return `/auth/error?message=${error.message}`;
         }
-        return redirect(
-          `/auth/error?message=Something went wrong.please try again!`
-        );
+        return `/auth/error?message=Something went wrong.please try again!`;
       }
     },
 

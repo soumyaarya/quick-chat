@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Dialog,
@@ -18,11 +19,11 @@ const handleGoogleLogin = async () => {
   });
 };
 
-export default function LoginModal() {
+export default function LoginModal({ children }: { children?: React.ReactNode }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Getting start</Button>
+        {children || <Button>Getting started</Button>}
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
